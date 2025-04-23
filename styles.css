@@ -24,23 +24,10 @@
     margin-bottom: 10px;
   }
   
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  nav a:hover {
-    color: #ffd700;
-  }
+    header h2 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
   
   main {
     margin: 40px 0;
