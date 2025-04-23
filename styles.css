@@ -71,7 +71,9 @@
   }
   
   .galeria img {
-    max-width: 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     border: 3px solid #b30000;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -79,7 +81,7 @@
   
   .galeria img:hover {
     transform: scale(1.05);
-  }
+  }  
   
   footer {
     background-color: #b30000;
