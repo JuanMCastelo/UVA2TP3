@@ -1,81 +1,195 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+
+ 
+:root {
+  /* Colores */
+  --color-primary: #800000;        
+  --color-secondary: #3a3a3a;      
+  --color-bg: #fafafa;            
+  --color-section-bg: #ffffff;     
+  --color-accent: #2a7cf6;        
+
+  /* Tipografías */
+  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+
+  /* Espaciados y dimensiones */
+  --gap-general: 1rem;
+  --radius: 0.625rem;             /* 10px */
+  --image-size: 12.5rem;          /* 200px */
+
+  /* Tipografía escala */
+  --font-size-base: 1rem;         /* 16px */
+  --font-size-h1: 2.5rem;         /* 40px */
+  --font-size-h2: 2rem;           /* 32px */
+  --line-height: 1.6;
+}
+
+/* ============================= */
+/*         ESTILOS GENERALES     */  
+/* ============================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================= */
+/*         ENCABEZADO Y PIE      */
+/* ============================= */
+header,
+footer {
+  background: var(--color-section-bg);
+  text-align: center;
+  padding: var(--gap-general);
+}
+
+header h1 {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-h1);
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+header h2 {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  color: var(--color-primary);
+}
+
+/* ============================= */
+/*       SECCIONES GENERALES     */
+/* ============================= */
+.seccion {
+  background: var(--color-section-bg);
+  padding: calc(var(--gap-general) * 2) var(--gap-general);
+  margin-top: var(--gap-general);
+}
+
+.seccion:first-of-type {
+  margin-top: 0;
+}
+
+.seccion h2 {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--gap-general);
+  color: #222;
+}
+
+/* ============================= */
+/*         LISTADO DE PLATOS     */
+/* ============================= */
+#platos ul {
+  list-style: disc inside;
+}
+
+#platos li {
+  margin-bottom: 0.5rem;
+}
+
+/* ============================= */
+/*            GALERÍA            */
+/* ============================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--image-size), 1fr));
+  gap: var(--gap-general);
+  justify-items: center;
+}
+
+.gallery__item {
+  background: var(--color-section-bg);
+  width: var(--image-size);
+  height: var(--image-size);
+  overflow: hidden;
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery__item:hover,
+.gallery__item:focus {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery__caption {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  color: var(--color-secondary);
+}
+
+/* ============================= */
+/*          HORARIOS             */
+/* ============================= */
+#horarios p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* ============================= */
+/*          CONTACTO             */
+/* ============================= */
+#contacto a {
+  color: var(--color-accent);
+  text-decoration: none;
+  position: relative;
+}
+
+#contacto a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+#contacto a:hover::after,
+#contacto a:focus::after {
+  transform: scaleX(1);
+}
+
+/* ============================= */
+/*         PIE DE PÁGINA         */
+/* ============================= */
+footer p {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+
+/* ============================= */
+/*      ESTILOS RESPONSIVOS      */
+/* ============================= */
+@media (min-width: 600px) {
   body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #fff9f4;
-    color: #333;
-    padding: 20px;
+    padding: 0 2rem;
   }
-  
-  header {
-    background-color: #b30000;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-  }
-  
-    header h2 {
-        font-size: 1.2em;
-        margin-bottom: 20px;
-    }
-  
-  main {
-    margin: 40px 0;
-  }
-  
-  section {
-    margin-bottom: 40px;
-  }
-  
-  section h2 {
-    color: #b30000;
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #b30000;
-    padding-bottom: 5px;
-  }
-  
-  ul {
-    padding-left: 20px;
-    list-style-type: disc;
-  }
-  
-  .galeria {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .galeria img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 3px solid #b30000;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
-  
-  .galeria img:hover {
-    transform: scale(1.05);
-  }  
-  
-  footer {
-    background-color: #b30000;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    font-size: 0.9em;
-  }
-  
+}
