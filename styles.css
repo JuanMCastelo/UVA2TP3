@@ -137,16 +137,7 @@ header h2 {
     object-fit: cover;
     display: block;
   }
-  
-  .galeria figcaption {
-    padding: 0.5rem;
-    font-size: 0.875rem;
-    text-align: center;
-    background-color: #fff;
-    color: var(--color-secondary);
-    width: 100%;
-  }
-  
+
 
 /* ============================= */
 /*          HORARIOS             */
